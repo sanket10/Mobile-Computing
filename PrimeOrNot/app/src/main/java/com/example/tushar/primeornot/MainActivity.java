@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     int number;
     private final static String statusField = "Status field value";
     private final static String numField = "Number field value";
+    RelativeLayout mrelativelayout ;
 
     Boolean status = false;
 
@@ -33,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setTitle("Prime Or Not");
         TextView txtview = (TextView) findViewById(R.id.textView);
-
+        mrelativelayout = (RelativeLayout)findViewById(R.id.relativelayout);
 
         if(savedInstanceState == null)
         {
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Please answer the question",Toast.LENGTH_SHORT).show();
             return;
         }
+        mrelativelayout.setBackgroundColor(Color.WHITE);
         TextView txtview = (TextView) findViewById(R.id.textView);
         number = generateRandomNumbers();
         txtview.setText("Is the number "+number + " prime ?");
@@ -135,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                                     if(value == true && status == false)
                                     {
                                         status = true;
-
+                                        mrelativelayout.setBackgroundColor(Color.rgb(00,64,00));
                                         Toast.makeText(this,"Congratulation,this is correct",Toast.LENGTH_SHORT).show();
 
                                     }
@@ -143,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
                                     else if(value == false && status == false)
                                     {
                                         status = true;
+                                        mrelativelayout.setBackgroundColor(Color.rgb(80,00,00));
                                         Toast.makeText(this,"Sorry,this is wrong",Toast.LENGTH_SHORT).show();
 
                                     }
@@ -163,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                                     if(value == false && status == false)
                                     {
                                         status = true;
+                                        mrelativelayout.setBackgroundColor(Color.rgb(00,64,00));
                                         Toast.makeText(this,"Congratulation,this is correct",Toast.LENGTH_SHORT).show();
 
                                     }
@@ -171,8 +175,9 @@ public class MainActivity extends AppCompatActivity {
                                     else if(value == true && status == false )
                                     {
                                         status = true;
+                                        mrelativelayout.setBackgroundColor(Color.rgb(80,00,00));
                                         Toast.makeText(this,"Sorry,this is wrong",Toast.LENGTH_SHORT).show();
-                                                                         }
+                                    }
 
 
                                     break;
